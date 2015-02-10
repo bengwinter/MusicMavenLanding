@@ -1,0 +1,7 @@
+../app/config.js
+*.DS_Store
+app/node_modules/*
+*.log
+*#
+app/main.css
+app/bundle-*.js

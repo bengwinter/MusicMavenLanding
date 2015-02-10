@@ -1,0 +1,133 @@
+@import url("../styles/colors.less");
+@import url("../styles/fonts.less");
+@import url("../styles/animations.less");
+@import url("../styles/breakpoints.less");
+
+#home-section {
+  background-color: @blue;
+  text-align: center;
+  font-size: 25px;
+
+  #opening-text {
+    h1 {
+      display: none;
+    }
+
+    p {
+      color: @white;
+      font-family: 'NexaLight';
+      padding: 0 2.5%;
+      font-size: 85%;
+      margin-bottom: 3.5%;
+
+      .breakpoint-small({
+        font-size: 105%;
+      });
+
+      .breakpoint-medium({
+        font-size: 120%;
+      });
+
+      .breakpoint-large({
+        font-size: 135%;
+      });
+    }
+
+    img {
+      max-width: 75%;
+      margin-bottom: 5%;
+    }
+
+    h6 {
+      font-size: 75%;
+      .breakpoint-small({
+        font-size: 100%;  
+      });
+      
+    }
+  }
+
+  .form-container {
+    .form-group .help-block {
+      display: none;
+    }
+     
+    .form-group.has-error .help-block {
+      display: block;
+      margin: 1%;
+      font-size: 70%;
+      color: @red;
+
+      .breakpoint-medium({
+        font-size: 90%;
+      });
+    }
+
+    .input-container {
+      margin: 0% .75% 2% .75%;
+    }
+
+    .form-group.has-error .input-container {
+      margin: 0% .75%;
+    }
+
+    .form-control {
+      font-size: 75%;
+      border-radius: 0px;
+      border: 2px solid @grey;
+
+      .breakpoint-large({
+        font-size: 100%;
+      });
+    }
+    
+    // input::-moz-placeholder {
+    //   font-size: 75%;
+    //   color: @black;
+    // }
+
+    input.form-control {
+      padding: 6% 3% 5% 3%;
+      min-height: 50px;
+      font-family: 'NexaLight';
+      -moz-box-sizing: border-box;
+    }
+
+    .contact-button {
+      background-color: @black;
+      border-radius: 0px;
+      border-color: @grey;
+      color: @white;
+      height: 50px;
+      width: 80%;
+
+      .breakpoint-medium({
+        width: 50%;
+      })
+    }
+
+    .contact-message {
+      display: none;
+      font-size: 65%;
+      font-family: 'NexaLight';
+      margin: 0;
+    }
+
+    .successMessage {
+      display: block;
+      color: rgba(71, 189, 129, 1.0);
+    }
+
+    .failureMessage {
+      display: block;
+      color: @red;
+    }
+
+    .hideButton {
+      display: none;
+    }
+
+  }
+
+
+}

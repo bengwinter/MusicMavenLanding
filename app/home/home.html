@@ -1,0 +1,33 @@
+<div id="home-section" class="row" ng-style="setHeightWidthAndPadding(1.0, 0.05, 0.1, 1.0)" resize>
+  <div class="col-xs-12">
+    <div class="row" id="opening-text">
+      <img ng-src="../images/logo/logo.png"/>
+      <h1>{{text.company}}</h1>
+      <p>{{text.welcomeText}}</p>
+      <h6>{{text.signUp}}</h6>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4 col-xs-12 form-container">
+        <form name="form.signUp" novalidate>
+          <div class="row">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12 input-container">
+                <input type="email" class="form-control" name="email" ng-model="signUp.email"  placeholder="Email Address" required></input>
+              </div>
+              <div class="col-xs-12">
+                <p class="help-block" ng-if="form.signUp.email.$error.required">An email address is required</p>
+                <p class="help-block" ng-if="form.signUp.email.$error.email">Please enter a valid email address</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 button-container">
+              <button class="btn btn-success btn-lg contact-button" ng-class="{'hideButton': submitMessageSuccess}" ng-click="sendSignUpForm()" ng-disabled="form.signUp.$invalid">Sign Up</button>
+              <p class="contact-message" ng-class="{'successMessage': submitMessageSuccess, 'failureMessage': !submitMessageSuccess}">{{submitMessage}}</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

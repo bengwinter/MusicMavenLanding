@@ -1,0 +1,5 @@
+./directives/disable-animation.js
+./directives/resize.js
+./directives/form-errors.js
+./services/TextLookup.js
+./services/DataService.js

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+printf "window.onload=function(){var a=["
+find images/ -type f | while read line; do
+    printf "\"%s\"," "$line"
+done
+printf "];for(var b=0;b<a.length;b++){var c=new Image();c.src=a[b]}};\n"

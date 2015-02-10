@@ -1,0 +1,6 @@
+#!/bin/sh
+
+touch bundle-lib.js && cat $(cat js-lib.txt) > bundle-lib.js
+touch bundle-directives.js && cat $(cat js-directives.txt) > bundle-directives.js
+touch bundle-ng.js && cat $(cat js-ng.txt) > bundle-ng.js
+./make_images > bundle-img.js

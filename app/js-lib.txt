@@ -1,0 +1,11 @@
+./components/libraries/jquery/jquery-1.11.2.min.js
+./components/libraries/bootstrap/js/bootstrap.min.js
+./components/libraries/bootstrap/js/bootstrap.min.js
+./components/libraries/angular/angular.min.js
+./components/libraries/angular/angular-resource.min.js
+./components/libraries/angular/angular-cookies.min.js
+./components/libraries/angular/angular-route.min.js
+./components/libraries/angular/angular-animate.min.js
+./components/libraries/angular/angular-touch.min.js
+./components/libraries/angular/angular-sanitize.min.js
+./components/libraries/angular/ui/ui-bootstrap-tpls-0.11.0.js
