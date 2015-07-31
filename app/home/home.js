@@ -13,8 +13,8 @@ angular
       $scope.sendSignUpForm = function() {
         $scope.$broadcast('show-errors-check-validity');
 
-        if ($scope.form.contact.$valid) {
-          var contactEmail = $scope.form.contact.email.$viewValue;
+        if ($scope.form.signUp.$valid) {
+          var contactEmail = $scope.form.signUp.email.$viewValue;
       
           var origin = location.origin;
 
@@ -34,8 +34,8 @@ angular
            });
 
           $scope.$broadcast('show-errors-reset');
-          $scope.contact = { name: '', email: '', message: '', telephone: '', reason: '' };
-          $scope.submitMessage = "Thank you for contacting us. Someone will be in touch within the next 5-7 business days."
+          $scope.signUp = { email: ''};
+          $scope.submitMessage = "Thank you for signing up. We will send you keep you informed as we continue our research."
           $scope.submitMessageSuccess = true;
 
       
