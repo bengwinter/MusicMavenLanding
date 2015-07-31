@@ -12,36 +12,35 @@ angular
 
       $scope.sendSignUpForm = function() {
         $scope.$broadcast('show-errors-check-validity');
-        if ($scope.form.signUp.$valid) {
-          var contactEmail = $scope.form.signUp.email.$viewValue;
+
+        if ($scope.form.contact.$valid) {
+          var contactEmail = $scope.form.contact.email.$viewValue;
       
           var origin = location.origin;
 
-          var data = {email: contactEmail, origin: origin};
-          
-          DataService.sendContactForm(data).success(function(data){
-            if (data["success"]) { 
+          var data = {email: contactEmail,
+          origin: origin};
 
-            } else {
-  
-            }
-            
-            
-          });
-        };
+          var message = {
+            to: 'info@musicmaven.co',
+            from: contactEmail,
+            data : data
+           };
+
+         $.post('/contact/send', message, function(res) { })
+           .error(function(xhr) { 
+            $scope.submitMessage = "There was an error sending your message. Please try again."
+            $scope.submitMessageFailure = true;
+           });
+
+          $scope.$broadcast('show-errors-reset');
+          $scope.contact = { name: '', email: '', message: '', telephone: '', reason: '' };
+          $scope.submitMessage = "Thank you for contacting us. Someone will be in touch within the next 5-7 business days."
+          $scope.submitMessageSuccess = true;
+
+      
+        }
       };
-    
-      $scope.$on('CONTACT_FORM_SUCCESS', function(response) {
-        $scope.$broadcast('show-errors-reset');
-        $scope.submitMessage = "Thank you for contacting us. Someone will be in touch within the next 24-48 hours."
-        $scope.submitMessageSuccess = true;
-        $scope.signUp = { name: '', email: '', message: '', telephone: '' };
-      });
-
-      $scope.$on('CONTACT_FORM_ERROR', function(response) {
-        $scope.submitMessage = "There was an error submitting your message. Please try again."
-        $scope.submitMessageSuccess = false;
-      });
       
       
     });
