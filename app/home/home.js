@@ -42,7 +42,7 @@ angular
             $scope.submitMessage = '';
             $scope.submitMessageSuccess = false;
             $scope.submitMessageFailure = false;            
-          }, 5000);
+          }, 3000);
           
       
         }
