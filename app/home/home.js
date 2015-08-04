@@ -38,6 +38,12 @@ angular
           $scope.submitMessage = "Thank you for signing up. We will send you keep you informed as we continue our research."
           $scope.submitMessageSuccess = true;
 
+          setTimeout(function(){ 
+            $scope.submitMessage = '';
+            $scope.submitMessageSuccess = false;
+            $scope.submitMessageFailure = false;            
+          }, 5000);
+          
       
         }
       };
