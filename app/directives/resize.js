@@ -1,5 +1,5 @@
 angular
-  .module('musicMaven')
+  .module('baejaVu')
     .directive('resize', function ($window) {
       return function (scope, element) {
         var w = angular.element($window);

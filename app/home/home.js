@@ -1,52 +1,58 @@
 'use strict';
 
 angular
-  .module('musicMaven')
-    .controller('HomeCtrl', function ($scope, $rootScope, TextLookupService, DataService) {
-      $scope.form = {};
-      $scope.submitMessage = "";
+  .module('baejaVu')
+    .controller('HomeCtrl', function ($scope, $rootScope, TextLookupService, DataService, $sce, $window) {
 
-      TextLookupService.getText('home.json').success(function(data){       
-        $scope.text = data;
-      });
+      var initializePage = function() {
+        $scope.form = {};
 
-      $scope.sendSignUpForm = function() {
-        $scope.$broadcast('show-errors-check-validity');
+        if ($window.innerWidth < 500) {
+          $scope.iframeString = '<iframe width="300" height="168.75" src="//www.youtube.com/embed/WtKUYpmEAfs" frameborder="0" allowfullscreen></iframe>'
+        } else {
+          $scope.iframeString = '<iframe width="560" height="315" src="//www.youtube.com/embed/WtKUYpmEAfs" frameborder="0" allowfullscreen></iframe>'
+        }
 
-        if ($scope.form.signUp.$valid) {
-          var contactEmail = $scope.form.signUp.email.$viewValue;
+        $scope.youtube = $sce.trustAsHtml($scope.iframeString);  
+      }
+
       
-          var origin = location.origin;
 
-          var data = {email: contactEmail,
-          origin: origin};
+      $scope.sendContactForm = function() {
+        $scope.$broadcast('show-errors-check-validity');
+        var formEl = $('#baeja-vu-contact-form');
+        var submitButton = $('input[type=submit]', formEl);
+        var formData = formEl.serialize();
 
-          var message = {
-            to: 'info@musicmaven.co',
-            from: contactEmail,
-            data : data
-           };
+        if ($scope.form.contact.$valid) {
+          $.ajax({
+            type: 'POST',
+            url: formEl.prop('action'),
+            accept: {
+              javascript: 'application/javascript'
+            },
+            data: formData,
+            beforeSend: function() {
+              submitButton.prop('disabled', 'disabled');
+            }
+          }).done(function(data) {
+            submitButton.prop('disabled', false);
+          });
 
-         $.post('/contact/send', message, function(res) { })
-           .error(function(xhr) { 
-            $scope.submitMessage = "There was an error sending your message. Please try again."
-            $scope.submitMessageFailure = true;
-           });
-
-          $scope.$broadcast('show-errors-reset');
-          $scope.signUp = { email: ''};
-          $scope.submitMessage = "Thank you for signing up. We will send you keep you informed as we continue our research."
-          $scope.submitMessageSuccess = true;
+            $scope.$broadcast('show-errors-reset');
+            $scope.contact = { name: '', email: '', message: ''};
+            $scope.submitMessage = "Thank you for reaching out."
+            $scope.submitMessageSuccess = true;
+        }
+            
 
           setTimeout(function(){ 
             $scope.submitMessage = '';
             $scope.submitMessageSuccess = false;
             $scope.submitMessageFailure = false;            
-          }, 3000);
-          
-      
-        }
+          }, 2500);
+     
       };
       
-      
+      initializePage();
     });

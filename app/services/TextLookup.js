@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('musicMaven').factory('TextLookupService',
+angular.module('baejaVu').factory('TextLookupService',
   function($http, $rootScope) {
     var Service = function() {};
 

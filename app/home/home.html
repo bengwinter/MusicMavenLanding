@@ -1,33 +1,65 @@
-<div id="home-section" class="row" ng-style="setHeightWidthAndPadding(1.0, 0.05, 0.1, 1.0)" resize>
-  <div class="col-xs-12">
-    <div class="row" id="opening-text">
-      <img ng-src="../images/logo/logo.png"/>
-      <h1>{{text.company}}</h1>
-      <p>{{text.welcomeText}}</p>
-      <h6>{{text.signUp}}</h6>
+<div id="home-section">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <img class="logo" ng-src="../images/logo/logo.png"/>
     </div>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4 col-xs-12 form-container">
-        <form name="form.signUp" novalidate>
-          <div class="row">
-            <div class="form-group" show-errors>
-              <div class="col-xs-12 input-container">
-                <input type="email" class="form-control" name="email" ng-model="signUp.email"  placeholder="Email Address" required></input>
-              </div>
-              <div class="col-xs-12">
-                <p class="help-block" ng-if="form.signUp.email.$error.required">An email address is required</p>
-                <p class="help-block" ng-if="form.signUp.email.$error.email">Please enter a valid email address</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 button-container">
-              <button class="btn btn-success btn-lg contact-button" ng-class="{'hideButton': submitMessageSuccess}" ng-click="sendSignUpForm()" ng-disabled="form.signUp.$invalid">Sign Up</button>
-              <p class="contact-message" ng-class="{'successMessage': submitMessageSuccess, 'failureMessage': !submitMessageSuccess}">{{submitMessage}}</p>
-            </div>
-          </div>
-        </form>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <img class="band-picture" ng-src="../images/band/band_one.jpg"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      <a href="https://www.facebook.com/events/1702100056702681/" target="_blank">
+        <h2>Next Show: April 21, 9:30 @ Thunder Road, Cambridge MA</h2>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div ng-bind-html="youtube">
       </div>
+      <p> We are proud to release our first real video, a submission to the NPR Tiny Desk Contest. Give it a few views to help us catch NPR’s attention!</p>
+    </div>
+  </div>
+  <div class="row" id="contact-section">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      <h2>Contact Us</h2>
+      <p>Be our bae! Join our mailing list.</p>
+      <p>Or if you would like to book us for a show, please send us a message or email us at <a href="mailto:contact@baejavu.com" target="_top">contact@baejavu.com</a></p>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3 col-xs-12 contact-form">
+      <form name="form.contact" novalidate accept-charset="UTF-8" action="https://formkeep.com/f/66941994f8b0" method="POST" id="baeja-vu-contact-form">
+        <div class="row">
+          <div class="col-xs-12 input-container">
+            <div class="form-group" show-errors>
+              <input type="email" class="form-control" name="email" ng-model="contact.email"  placeholder="EMAIL ADDRESS" required></input>
+              <p class="help-block" ng-if="form.contact.email.$error.required">An email address is required</p>
+              <p class="help-block" ng-if="form.contact.email.$error.email">Please enter a valid email address</p>
+            </div>
+          </div>
+          <div class="col-xs-12 input-container">
+            <div class="form-group" show-errors>
+              <input type="text" class="form-control" placeholder="NAME" name="name" ng-model="contact.name"></input>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group" show-errors>
+            <div class="col-xs-12 input-container">
+              <textarea class="form-control" name="message" ng-model="contact.message" placeholder="MESSAGE"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 contact-button-container">
+            <input type="hidden" name="utf8" value="✓">
+            <button class="btn btn-success btn-lg contact-button" type="submit" ng-class="{'hideButton': submitMessageSuccess}" ng-click="sendContactForm()" ng-disabled="form.contact.$invalid">SUBMIT</button>
+            <p class="contact-message" ng-class="{'successMessage': submitMessageSuccess, 'failureMessage': !submitMessageSuccess}">{{submitMessage}}</p>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

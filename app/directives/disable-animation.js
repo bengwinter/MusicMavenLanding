@@ -1,5 +1,5 @@
 angular
-  .module('musicMaven')
+  .module('baejaVu')
     .directive('disableAnimation', function($animate){
     return {
         restrict: 'A',

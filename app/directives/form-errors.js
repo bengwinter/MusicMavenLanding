@@ -1,5 +1,5 @@
 angular
-  .module('musicMaven')
+  .module('baejaVu')
     .directive('showErrors', function($timeout) {
       return {
         restrict: 'A',

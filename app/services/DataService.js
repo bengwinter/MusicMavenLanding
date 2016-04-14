@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('musicMaven').factory('DataService',
+angular.module('baejaVu').factory('DataService',
   function($http, $rootScope, $location) {
     var Service = function() {};
 

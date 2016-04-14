@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('musicMaven', [
+  .module('baejaVu', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
