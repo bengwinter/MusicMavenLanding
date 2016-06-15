@@ -11,9 +11,9 @@
   </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <a href="http://www.songkick.com/concerts/26100778-del-the-funky-homosapien-at-middle-east-downstairs" target="_blank">
+<!--       <a href="http://www.songkick.com/concerts/26100778-del-the-funky-homosapien-at-middle-east-downstairs" target="_blank"> -->
         <h2>Next Show: Secret Basement Show</h2>
-      </a>
+      <!-- </a> -->
     </div>
   </div>
   <div class="row">
@@ -30,7 +30,7 @@
       <p>Or if you would like to book us for a show, please send us a message or email us at <a href="mailto:contact@baejavu.com" target="_top">contact@baejavu.com</a></p>
     </div>
     <div class="col-sm-6 col-sm-offset-3 col-xs-12 contact-form">
-      <form name="form.contact" novalidate accept-charset="UTF-8" action="https://formkeep.com/f/66941994f8b0" method="POST" id="baeja-vu-contact-form">
+      <form name="form.contact" novalidate method="send" id="baeja-vu-contact-form">
         <div class="row">
           <div class="col-xs-12 input-container">
             <div class="form-group" show-errors>
@@ -41,20 +41,23 @@
           </div>
           <div class="col-xs-12 input-container">
             <div class="form-group" show-errors>
-              <input type="text" class="form-control" placeholder="NAME" name="name" ng-model="contact.name"></input>
+              <input type="text" class="form-control" placeholder="NAME" name="data[Name]" ng-model="contact.name"></input>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="form-group" show-errors>
             <div class="col-xs-12 input-container">
-              <textarea class="form-control" name="message" ng-model="contact.message" placeholder="MESSAGE"></textarea>
+              <textarea class="form-control" name="data[Message]" ng-model="contact.message" placeholder="MESSAGE"></textarea>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 contact-button-container">
             <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="to" value="contact@baejavu.com" />
+            <input type="hidden" name="noreply" value="no-reply@baejavu.com" />
+            <input type="hidden" name="company" value="Baeja Vu" />
             <button class="btn btn-success btn-lg contact-button" type="submit" ng-class="{'hideButton': submitMessageSuccess}" ng-click="sendContactForm()" ng-disabled="form.contact.$invalid">SUBMIT</button>
             <p class="contact-message" ng-class="{'successMessage': submitMessageSuccess, 'failureMessage': !submitMessageSuccess}">{{submitMessage}}</p>
           </div>

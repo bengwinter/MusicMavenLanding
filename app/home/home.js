@@ -20,14 +20,38 @@ angular
 
       $scope.sendContactForm = function() {
         $scope.$broadcast('show-errors-check-validity');
+
         var formEl = $('#baeja-vu-contact-form');
-        var submitButton = $('input[type=submit]', formEl);
         var formData = formEl.serialize();
+        var submitButton = $('input[type=submit]', formEl);
+          // formEl.find('button').click(function(e) {
+          //   e.preventDefault();
+          //   // e.stopPropagation();
+
+          //   var formData = form.serialize();
+          //   $.post('http://thebigflamingo.com/contact/send', formData, function(response) { 
+          //     console.log(response); 
+          //     $scope.$broadcast('show-errors-reset');
+          //     $scope.contact = { name: '', email: '', message: ''};
+          //     $scope.submitMessage = "Thank you for reaching out."
+          //     $scope.submitMessageSuccess = true;
+                
+
+          //     setTimeout(function(){ 
+          //       $scope.submitMessage = '';
+          //       $scope.submitMessageSuccess = false;
+          //       $scope.submitMessageFailure = false;            
+          //     }, 2500);
+          //   });
+          // });
+        // var formEl = $('#baeja-vu-contact-form');
+        
+        // var formData = formEl.serialize();
 
         if ($scope.form.contact.$valid) {
           $.ajax({
             type: 'POST',
-            url: formEl.prop('action'),
+            url: 'http://thebigflamingo.com/contact/send',
             accept: {
               javascript: 'application/javascript'
             },
